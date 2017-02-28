@@ -1,13 +1,11 @@
 import * as actions from '../actions/actiontypes';
 
 const defaultState = () => {
-  let cells = [];
+  let cells = {};
   for (let i = 0; i < 3; i++) {
-    cells[i]=[]
     for (let j = 0; j < 3; j++) {
-      cells[i].push([])
       for (let k = 0; k < 3; k++) {
-        cells[i][j].push(null)
+        cells[''+i+j+k] = null
       }
     }
   }

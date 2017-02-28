@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import store from '../store/store.config'
+import Cell from './Cell'
+import * as actions from '../actions/actiontypes'
 import 'aframe';
 import 'aframe-layout-component';
 
@@ -7,24 +11,32 @@ class Board extends Component {
     super(props)
   }
 
+  renderCells(){
+    return Object.keys(this.props.board).map(key => {
+      return (
+        <Cell
+          key={key}
+          position={key}
+          color={this.props.board[key]}
+        ></Cell>
+      )
+    })
+  }
+
   render() {
     return (
-      <a-entity 
-        layout="type:box; columns: 3; margin: 2"
-        position="0 0 -10"
-      >
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
-        <a-box color="red"></a-box>
+      
+      <a-entity>
+        {this.renderCells()}
       </a-entity>
     )
   }
 }
 
-export default Board;
+function mapStateToProps(state, props) {
+  return {
+    board:state.board    
+  }
+}
+
+export default connect(mapStateToProps)(Board);

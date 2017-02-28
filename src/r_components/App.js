@@ -7,6 +7,10 @@ import Board from './Board'
 import '../styles/App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props.board)
+  }
   render() {
     return (
       <div className="App">
@@ -23,7 +27,7 @@ class App extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    
+    board:state.board    
   }
 }
 
