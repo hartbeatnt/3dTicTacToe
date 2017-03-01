@@ -4,12 +4,7 @@ import 'aframe';
 const Cell = (props) => {
   let position = props.position
     .split('')
-    .map((num,i)=>{
-      num*=3;
-      return i === 0 ? 
-      num -= 3 : i === 1 ? 
-      num : num -= 15;
-    })
+    .map(num=>num*3-3)
     .join(' ')
   let material = props.color ? 
     `color: ${props.color}; transparent: true; opacity: 0.5`:

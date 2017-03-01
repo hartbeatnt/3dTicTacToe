@@ -1,5 +1,5 @@
 {
-  "name": "3dTicTacToe",
+  "name": "3dtictactoe",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -18,5 +18,26 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hartbeatnt/3dTicTacToe.git"
+  },
+  "keywords": [
+    "3d",
+    "tictactoe",
+    "game",
+    "aframe",
+    "webvr",
+    "vr",
+    "three.js"
+  ],
+  "author": "n8sh4rk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hartbeatnt/3dTicTacToe/issues"
+  },
+  "homepage": "https://github.com/hartbeatnt/3dTicTacToe#readme"
 }

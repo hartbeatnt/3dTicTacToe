@@ -5,6 +5,7 @@ import Cell from './Cell'
 import * as actions from '../actions/actiontypes'
 import 'aframe';
 import 'aframe-layout-component';
+import 'aframe-keyboard-roto-component'
 
 class Board extends Component {
   constructor(props) {
@@ -26,7 +27,15 @@ class Board extends Component {
   render() {
     return (
       
-      <a-entity>
+      <a-entity
+        position = "0 3 -10"
+        keyboard-roto
+      >
+      <a-sphere
+        position="0 0 0"
+        radius = '0.5'
+        color="red"
+      ></a-sphere>
         {this.renderCells()}
       </a-entity>
     )

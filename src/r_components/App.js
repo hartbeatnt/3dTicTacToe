@@ -9,16 +9,18 @@ import '../styles/App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log(props.board)
   }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to React</h2>
+          <h2>3DIC 3DAC 3DOE</h2>
         </div>
         <a-scene>
-          <Board/>
+          <a-camera wasd-controls="enabled:false"></a-camera>
+          <a-sky color="lightblue"></a-sky>
+          <Board />
         </a-scene>
       </div>
     );
@@ -26,9 +28,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return {
-    board:state.board    
-  }
+  return {}
 }
 
 export default connect(mapStateToProps)(App);
