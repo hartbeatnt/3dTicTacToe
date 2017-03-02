@@ -31,11 +31,7 @@ class Board extends Component {
         position = "0 3 -10"
         keyboard-roto
       >
-      <a-sphere
-        position="0 0 0"
-        radius = '0.5'
-        color="red"
-      ></a-sphere>
+
         {this.renderCells()}
       </a-entity>
     )
