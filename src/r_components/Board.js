@@ -4,8 +4,8 @@ import store from '../store/store.config'
 import Cell from './Cell'
 import * as actions from '../actions/actiontypes'
 import 'aframe';
-import 'aframe-layout-component';
-import 'aframe-keyboard-roto-component'
+// import 'aframe-keyboard-roto-component';
+import 'aframe-trackball-component';
 
 class Board extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Board extends Component {
       
       <a-entity
         position = "0 3 -10"
-        keyboard-roto
+        trackball-roto
       >
 
         {this.renderCells()}

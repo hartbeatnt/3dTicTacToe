@@ -5,6 +5,7 @@ import * as actions from '../actions/actiontypes'
 import 'aframe'
 import Board from './Board'
 import '../styles/App.css';
+import 'aframe-mouse-cursor-component';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,11 @@ class App extends Component {
           <h2>3DIC 3DAC 3DOE</h2>
         </div>
         <a-scene>
-          <a-camera wasd-controls="enabled:false"></a-camera>
+          <a-camera 
+              wasd-controls="enabled:false"
+              look-controls="enabled:false" 
+              mouse-cursor >
+          </a-camera>
           <a-sky color="lightblue"></a-sky>
           <Board />
         </a-scene>
