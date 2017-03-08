@@ -15,8 +15,8 @@ const defaultState = () => {
 
 export default (state=defaultState(), action) => {
   switch (action.type) {
-    case actions.PLACE_PIECE:
-      return ({...state, cells:action.cells});
+    case 'PLACE_PIECE':
+      return ({...state, cells:action.board});
     default:
       return state;
   }
