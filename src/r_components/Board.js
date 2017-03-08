@@ -13,22 +13,23 @@ class Board extends Component {
   }
 
   placePiece(position){
-    let board = this.props.board;
-    board[position] = 'red';
+    let cells = this.props.board.cells;
+    if (cells[position]) return;
+    cells[position] = this.props.board.turn;
     store.dispatch({
       type: 'PLACE_PIECE',
-      board
+      cells
     })
   }
 
   renderCells(){
-    return Object.keys(this.props.board).map(key => {
+    return Object.keys(this.props.board.cells).map(key => {
       return (
         <Cell
           key={key}
           position={key}
           placePiece={this.placePiece.bind(this)}
-          color={this.props.board[key]}
+          color={this.props.board.cells[key]}
         ></Cell>
       )
     })

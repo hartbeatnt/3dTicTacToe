@@ -21,11 +21,17 @@ class App extends Component {
         <a-scene>
           <a-camera 
               wasd-controls="enabled:false"
-              look-controls="enabled:false" 
+              look-controls="enabled:true" 
               mouse-cursor >
           </a-camera>
           <a-sky color="lightblue"></a-sky>
           <Board />
+          <a-text
+            color={this.props.turn} 
+            value={`${this.props.turn}'s turn`}
+            position='0 0 -3'
+            align="center"
+          ></a-text>
         </a-scene>
       </div>
     );
@@ -33,7 +39,9 @@ class App extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return {}
+  return {
+    turn: state.board.turn
+  }
 }
 
 export default connect(mapStateToProps)(App);
