@@ -10,6 +10,39 @@ import 'aframe-keyboard-roto-component';
 class Board extends Component {
   constructor(props) {
     super(props)
+    const cells = Object.keys(this.props.board.cells)
+    const winCombos = [];
+
+    cells.forEach(cell=>{
+      let x = +cell.slice(0,1)
+      let y = +cell.slice(1,2)
+      let z = +cell.slice(2)
+      if (x===0 && y===0 && z===0)
+        winCombos.push([''+x+y+z,''+(x+1)+(y+1)+(z+1),''+(x+2)+(y+2)+(z+2)])
+      if (x===0 && y===0)
+        winCombos.push([''+x+y+z,''+(x+1)+(y+1)+z,''+(x+2)+(y+2)+z])
+      if (x===0 && y===2)
+        winCombos.push([''+x+y+z,''+(x+1)+(y-1)+z,''+(x+2)+(y-2)+z])
+      if (x===2 && y===0)
+        winCombos.push([''+x+y+z,''+(x-1)+(y+1)+z,''+(x-2)+(y+2)+z])
+      if (x===0 && z===0)
+        winCombos.push([''+x+y+z,''+(x+1)+y+(z+1),''+(x+2)+y+(z+2)])
+      if (x===0 && z===2)
+        winCombos.push([''+x+y+z,''+(x+1)+y+(z-1),''+(x+2)+y+(z-2)])
+      if (x===2 && z===0)
+        winCombos.push([''+x+y+z,''+(x-1)+y+(z+1),''+(x-2)+y+(z+2)])
+      if (y===0 && z===0)
+        winCombos.push([''+x+y+z,''+x+(y+1)+(z+1),''+x+(y+2)+(z+2)])
+      if (y===0 && z===2)
+        winCombos.push([''+x+y+z,''+x+(y+1)+(z-1),''+x+(y+2)+(z-2)])
+      if (y===2 && z===0)
+        winCombos.push([''+x+y+z,''+x+(y-1)+(z+1),''+x+(y-2)+(z+2)])
+      if (x===0) winCombos.push([''+x+y+z,''+(x+1)+y+z,''+(x+2)+y+z]);
+      if (y===0) winCombos.push([''+x+y+z,''+x+(y+1)+z,''+x+(y+2)+z]);
+      if (z===0) winCombos.push([''+x+y+z,''+x+y+(z+1),''+x+y+(z+2)]);
+    })
+    
+    this.winCombos = winCombos;
   }
 
   placePiece(position){
@@ -20,6 +53,16 @@ class Board extends Component {
       type: 'PLACE_PIECE',
       cells
     })
+    console.log(position)
+    this.winCheck(position)
+  }
+
+  winCheck(position) {
+    const board = this.state.board.cells;
+    const check = arr => {
+      return arr.every(cell=>cell===board[position])
+    }
+        
   }
 
   renderCells(){
@@ -39,7 +82,7 @@ class Board extends Component {
     return (
       
       <a-entity
-        position = "0 3 -10"
+        position="0 3 -10"
         keyboard-roto
       >
 
