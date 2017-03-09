@@ -41,7 +41,7 @@ class Board extends Component {
       if (y===0) winCombos.push([''+x+y+z,''+x+(y+1)+z,''+x+(y+2)+z]);
       if (z===0) winCombos.push([''+x+y+z,''+x+y+(z+1),''+x+y+(z+2)]);
     })
-    
+    // is it okay to save this to this.wincombos?
     this.winCombos = winCombos;
   }
 
